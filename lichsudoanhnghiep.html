@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>KHÔNG GIAN VĂN HÓA HỒ CHÍ MINH | CẤP NƯỚC NHÀ BÈ</title>
-    <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Không Gian Văn Hóa Hồ Chí Minh</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"
+    />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css" />
     <!-- Ionicons -->
@@ -13,7 +18,7 @@
       rel="stylesheet"
       href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
     />
-    <!-- Tempusdominus Bbootstrap 4 -->
+    <!-- Tempusdominus Bootstrap 4 -->
     <link
       rel="stylesheet"
       href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"
@@ -35,206 +40,584 @@
     <!-- Daterange picker -->
     <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css" />
     <!-- summernote -->
-    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css" />
-    <!-- Google Font: Source Sans Pro -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css" />
+    <!-- Không gian Van hoa CSS -->
+    <link rel="stylesheet" href="dist/css/khongianvanhoa.css" />
 
-    <link rel="stylesheet" href="lichsudoanhnghiep_scoped.css" />
+    <!-- Style cho trang lichsudoanhnghiep.html CSS -->
+    <style>
+      .timeline-container {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin: 30px 0;
+        padding: 0 50px;
+      }
+
+      .timeline-line {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background-color: #2e6d73;
+        z-index: 0;
+      }
+
+      .timeline-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      .timeline-point {
+        width: 20px;
+        height: 20px;
+        border: 3px solid orange;
+        border-radius: 50%;
+        background-color: white;
+        cursor: pointer;
+      }
+
+      .timeline-dot-line {
+        height: 15px;
+        border-left: 2px dotted #2e6d73;
+        margin: 4px 0;
+      }
+
+      .timeline-label {
+        font-weight: bold;
+        color: orange;
+        cursor: pointer;
+        margin-top: 2px;
+      }
+
+      .event-content {
+        margin-top: 30px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-left: 5px solid orange;
+        background: #f9f9f9;
+      }
+    </style>
+    <style>
+      .highcharts-figure,
+      .highcharts-data-table table {
+        background-color: "red";
+        min-width: 360px;
+        max-width: 800px;
+        margin: 1em auto;
+      }
+
+      .highcharts-data-table table {
+        background-color: "yellow";
+        font-family: Verdana, sans-serif;
+        border-collapse: collapse;
+        border: 1px solid #ebebeb;
+        margin: 10px auto;
+        text-align: center;
+        width: 100%;
+        max-width: 500px;
+      }
+      .highcharts-data-table caption {
+        background-color: "yellow";
+        padding: 1em 0;
+        font-size: 1.2em;
+        color: #555;
+      }
+      .highcharts-data-table th {
+        font-weight: 600;
+        padding: 0.5em;
+      }
+      .highcharts-data-table td,
+      .highcharts-data-table th,
+      .highcharts-data-table caption {
+        padding: 0.5em;
+      }
+      .highcharts-data-table thead tr,
+      .highcharts-data-table tr:nth-child(even) {
+        background: #f8f8f8;
+      }
+      .highcharts-data-table tr:hover {
+        background: #f1f7ff;
+      }
+
+      #container h4 {
+        text-transform: none;
+        font-size: 14px;
+        font-weight: normal;
+      }
+      #container p {
+        font-size: 13px;
+        line-height: 16px;
+      }
+
+      @media screen and (max-width: 600px) {
+        #container h4 {
+          font-size: 2.3vw;
+          line-height: 3vw;
+        }
+        #container p {
+          font-size: 2.3vw;
+          line-height: 3vw;
+        }
+      }
+    </style>
+    <style>
+      /* COLOR VARIABLES */
+      :root {
+        --level-1: #8dccad;
+        --level-2: #f5cc7f;
+        --level-3: #7b9fe0;
+        --level-4: #f27c8d;
+        --black: black;
+      }
+
+      /* RESET STYLES */
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      ol {
+        list-style: none;
+      }
+      .rectangle {
+        position: relative;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      }
+
+      /* LEVEL-1 (Chủ tịch HĐQT) */
+      .level-1 {
+        width: 50%;
+        margin: 0 auto 40px;
+        background: var(--level-1);
+      }
+      .level-1::before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 20px;
+        background: var(--black);
+      }
+
+      /* LEVEL-2 (Giám Đốc) */
+      .level-2-wrapper {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+      }
+      .level-2-wrapper::before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 20px;
+        background: var(--black);
+      }
+      .level-2-wrapper li {
+        position: relative;
+      }
+      .level-2-wrapper > li::before {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 20px;
+        background: var(--black);
+      }
+      .level-2 {
+        width: 70%;
+        margin: 0 auto 40px;
+        background: var(--level-2);
+      }
+      .level-2::before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 20px;
+        background: var(--black);
+      }
+
+      /* LEVEL-3 WRAPPER (3 Phó Giám Đốc) */
+      .level-3-wrapper.horizontal {
+        display: flex;
+        justify-content: space-around;
+        position: relative;
+      }
+      .level-3-wrapper.horizontal::before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--black);
+      }
+      .level-3-wrapper > li::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        width: 2px;
+        height: 20px;
+        background: var(--black);
+      }
+      .level-3 {
+        margin-bottom: 20px;
+        background: var(--level-3);
+      }
+
+      /* LEVEL-4 (Các phòng ban dưới Phó Giám Đốc) */
+      .level-4-wrapper {
+        position: relative;
+        width: 80%;
+        margin-left: auto;
+      }
+      .level-4-wrapper::before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        width: 2px;
+        height: calc(100% + 20px);
+        background: var(--black);
+      }
+      .level-4-wrapper li + li {
+        margin-top: 20px;
+      }
+      .level-4 {
+        font-weight: normal;
+        background: var(--level-4);
+      }
+      .level-4::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        transform: translate(-100%, -50%);
+        width: 20px;
+        height: 2px;
+        background: var(--black);
+      }
+      .tooltip-inner {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+      }
+
+      .tooltip.bs-tooltip-bottom .arrow::before {
+        border-bottom-color: transparent !important;
+      }
+    </style>
+    <style>
+      #fullTooltip {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+
+      .tooltip-content {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+      }
+    </style>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/sankey.js"></script>
+    <script src="https://code.highcharts.com/modules/organization.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
   </head>
-  
-  <body class="hold-transition sidebar-mini layout-fixed">
+  <body
+    ng-app="myApp"
+    ng-controller="myCtrl"
+    class="hold-transition sidebar-mini layout-fixed"
+  >
     <div class="wrapper">
-      <!-- Navbar -->
-      <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-        <marquee
-          style="color: brown; font-weight: bold"
-          behavior="scroll"
-          direction="left"
-        >
-          CHÀO MỪNG ĐẾN VỚI KHÔNG GIAN VĂN HÓA HỒ CHÍ MINH - CÔNG TY CỔ PHẦN CẤP
-          NƯỚC NHÀ BÈ
-        </marquee>
-      </nav>
-      <!-- /.navbar -->
+      <!-- Preloader -->
+      <div
+        class="preloader flex-column justify-content-center align-items-center"
+      >
+        <img
+          class="animation__shake"
+          src="dist/img/AdminLTELogo.png"
+          alt="AdminLTELogo"
+          height="60"
+          width="60"
+        />
+      </div>
+      <div ng-include="'include/Navbar.html'"></div>
 
       <!-- Main Sidebar Container -->
-      <aside class="main-sidebar sidebar-light-danger elevation-4">
-        <!-- Sidebar -->
-        <div class="sidebar">
-          <!-- Sidebar user panel (optional) -->
-          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image" style="width: 100%; height: auto">
-              <img
-                src="dist/img/logo-cu2022.png"
-                alt="User Image"
-                style="width: 100%; height: auto; object-fit: contain"
-              />
-            </div>
-          </div>
-
-          <!-- Sidebar Menu -->
-          <nav
-            class="nav nav-pills nav-sidebar flex-column"
-            data-widget="treeview"
-            role="menu"
-            data-accordion="false"
-          >
-            <ul
-              class="nav nav-pills nav-sidebar flex-column"
-              data-widget="treeview"
-              role="menu"
-              data-accordion="false"
-            >
-              <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-              <li class="nav-item">
-                <a href="index.html" class="nav-link">
-                  <i class="nav-icon far fa-image"></i>
-                  <p>Trang chủ</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="lichsudoanhnghiep.html" class="nav-link active">
-                  <i class="nav-icon far fa-image"></i>
-                  <p>Lịch sử doanh nghiệp</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="tieusuhcm.html" class="nav-link">
-                  <i class="nav-icon far fa-image"></i>
-                  <p>Tiểu sử chủ tịch HCM</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="baotang3d.html" class="nav-link">
-                  <i class="nav-icon far fa-image"></i>
-                  <p>Bảo tàng 3D</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/gallery.html" class="nav-link">
-                  <i class="nav-icon far fa-image"></i>
-                  <p>Tác phẩm của Bác</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="tacphamvebac.html" class="nav-link">
-                  <i class="nav-icon far fa-image"></i>
-                  <p>Tác phẩm về Bác</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="tulieuvideoclip.html" class="nav-link">
-                  <i class="nav-icon far fa-image"></i>
-                  <p>Tư liệu video, clip</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="guongdienhinh.html" class="nav-link">
-                  <i class="nav-icon far fa-image"></i>
-                  <p>Gương điển hình</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="hocvalamtheoloibac.html" class="nav-link">
-                  <i class="nav-icon far fa-image"></i>
-                  <p>Học và làm theo lời Bác</p>
-                </a>
-              </li>
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon far fa-image"></i>
-                  <p>
-                    Tủ sách thanh niên
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview" style="display: none;">
-                  <li class="nav-item">
-                    <a href="tusachthanhnien_01.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Lịch sử - Chính trị</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="tusachthanhnien_02.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Tâm lý - Kỹ năng sống</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="tusachthanhnien_03.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Thư viện pháp luận</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </nav>
-          <!-- /.sidebar-menu -->
-        </div>
-        <!-- /.sidebar -->
-      </aside>
+      <div ng-include="'include/Sidebar.html'"></div>
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-        <section class="content">
-          <div class="container-fluid">
-            <!-- Main row -->
-            <div class="row">
-              <!-- Left col -->
-              <section class="col-lg-12 timeline-wrapper">
-                <h1>Lịch sử công ty CPCN Nhà Bè</h1>
-                <ul>
-                    <li style="--accent-color:#41516C">
-                        <div class="date">2002</div>
-                        <div class="title">Title 1</div>
-                        <div class="descr">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas itaque hic quibusdam fugiat est numquam harum, accusamus suscipit consequatur laboriosam!</div>
-                    </li>
-                    <li style="--accent-color:#FBCA3E">
-                        <div class="date">2007</div>
-                        <div class="title">Title 2</div>
-                        <div class="descr">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos adipisci nobis nostrum vero nihil veniam.</div>
-                    </li>
-                    <li style="--accent-color:#E24A68">
-                        <div class="date">2012</div>
-                        <div class="title">Title 3</div>
-                        <div class="descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga minima consequuntur soluta placeat iure totam commodi repellendus ea delectus, libero fugit quod reprehenderit, sequi quo, et dolorum saepe nulla hic.</div>
-                    </li>
-                    <li style="--accent-color:#1B5F8C">
-                        <div class="date">2017</div>
-                        <div class="title">Title 4</div>
-                        <div class="descr">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit, cumque.</div>
-                    </li>
-                    <li style="--accent-color:#4CADAD">
-                        <div class="date">2022</div>
-                        <div class="title">Title 5</div>
-                        <div class="descr">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, non.</div>
-                    </li>
-                </ul>
-              </section>
-              <!-- /.Left col -->
-            </div>
+        <!-- Content Header (Page header) -->
+        <div class="content-header" style="margin-top: 1px">
+          <!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
 
-            <!-- /.row (main row) -->
+        <!-- Main content -->
+        <div class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="card card-red card-outline">
+                  <div class="card-body">
+                    <div class="timeline-container">
+                      <div class="timeline-line"></div>
+
+                      <div class="timeline-item" ng-repeat="event in events">
+                        <div
+                          class="timeline-point"
+                          ng-click="selectEvent(event)"
+                        ></div>
+                        <div class="timeline-dot-line"></div>
+                        <div
+                          class="timeline-label"
+                          ng-click="selectEvent(event)"
+                        >
+                          Giai đoạn {{ event.year }}
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Nội dung cho năm 2025 -->
+                    <div
+                      class="event-content"
+                      ng-show="selectedYear === '2025'"
+                    >
+                      <div class="container">
+                        <h2
+                          style="
+                            text-align: center;
+                            font-weight: bold;
+                            cursor: pointer;
+                          "
+                          class="level-1 rectangle"
+                          onclick="showFullTooltip()"
+                        >
+                          Chủ tịch HĐQT
+                        </h2>
+
+                        <!-- Tooltip toàn màn hình -->
+                        <div
+                          id="fullTooltip"
+                          style="display: none"
+                          onclick="hideFullTooltip()"
+                        >
+                          <div class="tooltip-content">
+                            <img
+                              src="dist/khonggianvanhoa/detailChuTichHDQT.png"
+                              alt="Chủ tịch HĐQT"
+                              style="max-width: 90%; max-height: 90%"
+                            />
+                          </div>
+                        </div>
+
+                        <ol class="level-2-wrapper">
+                          <li>
+                            <h2
+                              style="text-align: center; font-weight: bold"
+                              class="level-2 rectangle"
+                              data-toggle="tooltip"
+                              data-html="true"
+                              data-placement="bottom"
+                              title='<div style="background: white; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+             <img src="dist/khonggianvanhoa/detailChuTichHDQT.png" width="800" alt="Chủ tịch HĐQT">
+           </div>'
+                            >
+                              Giám Đốc
+                            </h2>
+                            <ol class="level-3-wrapper horizontal">
+                              <li>
+                                <h3
+                                  style="text-align: center; font-weight: bold"
+                                  class="level-3 rectangle"
+                                  data-toggle="tooltip"
+                                  data-html="true"
+                                  data-placement="bottom"
+                                  title='<div style="background: white; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+             <img src="dist/khonggianvanhoa/detailChuTichHDQT.png" width="800" alt="Chủ tịch HĐQT">
+           </div>'
+                                >
+                                  Phó Giám Đốc KD
+                                </h3>
+                                <ol class="level-4-wrapper">
+                                  <li>
+                                    <h4 class="level-4 rectangle">
+                                      Phòng Kinh doanh
+                                    </h4>
+                                  </li>
+                                  <li>
+                                    <h4 class="level-4 rectangle">
+                                      Phòng Quản lý ghi thu 1
+                                    </h4>
+                                  </li>
+                                  <li>
+                                    <h4 class="level-4 rectangle">
+                                      Phòng Quản lý ghi thu 2
+                                    </h4>
+                                  </li>
+                                </ol>
+                              </li>
+                              <li>
+                                <h3
+                                  style="text-align: center; font-weight: bold"
+                                  class="level-3 rectangle"
+                                  data-toggle="tooltip"
+                                  data-html="true"
+                                  data-placement="bottom"
+                                  title='<div style="background: white; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+             <img src="dist/khonggianvanhoa/detailChuTichHDQT.png" width="800" alt="Chủ tịch HĐQT">
+           </div>'
+                                >
+                                  Phó Giám Đốc KT
+                                </h3>
+                                <ol class="level-4-wrapper">
+                                  <li>
+                                    <h4 class="level-4 rectangle">
+                                      Phòng Kỹ thuật
+                                    </h4>
+                                  </li>
+                                  <li>
+                                    <h4 class="level-4 rectangle">
+                                      Phòng Quản lý điều hành cấp nước
+                                    </h4>
+                                  </li>
+                                  <li>
+                                    <h4 class="level-4 rectangle">
+                                      Phòng Quản lý mạng lưới cấp nước 1
+                                    </h4>
+                                  </li>
+                                  <li>
+                                    <h4 class="level-4 rectangle">
+                                      Phòng Quản lý mạng lưới cấp nước 2
+                                    </h4>
+                                  </li>
+                                </ol>
+                              </li>
+                              <li>
+                                <h3
+                                  style="text-align: center; font-weight: bold"
+                                  class="level-3 rectangle"
+                                  data-toggle="tooltip"
+                                  data-html="true"
+                                  data-placement="bottom"
+                                  title='<div style="background: white; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+             <img src="dist/khonggianvanhoa/detailChuTichHDQT.png" width="800" alt="Chủ tịch HĐQT">
+           </div>'
+                                >
+                                  Phó Giám Đốc CNTT
+                                </h3>
+                                <ol class="level-4-wrapper">
+                                  <li>
+                                    <h4 class="level-4 rectangle">
+                                      Phòng Công nghệ Thông tin
+                                    </h4>
+                                  </li>
+                                  <li>
+                                    <h4 class="level-4 rectangle">
+                                      Phòng Tổ chức Hành chính
+                                    </h4>
+                                  </li>
+                                  <li>
+                                    <h4 class="level-4 rectangle">
+                                      Phòng Kế toán Tài chính
+                                    </h4>
+                                  </li>
+                                  <li>
+                                    <h4 class="level-4 rectangle">
+                                      Phòng Kế hoạch Vật tư Tổng hợp
+                                    </h4>
+                                  </li>
+                                  <li>
+                                    <h4 class="level-4 rectangle">
+                                      Ban Quản lý Dự án
+                                    </h4>
+                                  </li>
+                                </ol>
+                              </li>
+                            </ol>
+                          </li>
+                        </ol>
+                      </div>
+                    </div>
+
+                    <!-- Nội dung cho năm 2024 -->
+                    <div
+                      class="event-content"
+                      ng-show="selectedYear === '2024'"
+                    >
+                      <h4>2024</h4>
+                      <p>Đạt cột mốc 1 triệu khách hàng.</p>
+                    </div>
+
+                    <!-- Nội dung cho năm 2023 -->
+                    <div
+                      class="event-content"
+                      ng-show="selectedYear === '2023'"
+                    >
+                      <h4>2023</h4>
+                      <p>Triển khai hệ thống ERP.</p>
+                    </div>
+
+                    <!-- Nội dung cho năm 2022 -->
+                    <div
+                      class="event-content"
+                      ng-show="selectedYear === '2022'"
+                    >
+                      <h4>2022</h4>
+                      <p>Mở rộng thị trường khu vực phía Nam.</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card -->
+              </div>
+              <!-- /.col-md-6 -->
+            </div>
+            <!-- /.row -->
           </div>
           <!-- /.container-fluid -->
-        </section>
+        </div>
         <!-- /.content -->
       </div>
       <!-- /.content-wrapper -->
       <footer class="main-footer">
         <strong
-          >Copyright &copy; 2014-2019
-          <a href="http://adminlte.io">AdminLTE.io</a>.</strong
+          >Copyright &copy; 2025-2026
+          <a href="https://kgvhhcm.capnuocnhabe.vn"
+            >Không Gian văn Hóa Hồ Chí Minh</a
+          >.</strong
         >
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
-          <b>Version</b> 3.0.1-pre
+          <b>Version</b> 1.0.0
         </div>
       </footer>
 
@@ -276,9 +659,40 @@
     <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->
     <script src="dist/js/adminlte.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="dist/js/demo.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="dist/js/pages/dashboard.js"></script>
+    <script>
+      angular.module("myApp", []).controller("myCtrl", function ($scope) {
+        $scope.events = [
+          { year: "2025" },
+          { year: "2024" },
+          { year: "2023" },
+          { year: "2022" },
+        ];
+
+        $scope.selectedYear = null;
+
+        $scope.selectEvent = function (event) {
+          $scope.selectedYear = event.year;
+        };
+      });
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    </script>
+    <script>
+      function showFullTooltip() {
+        document.getElementById("fullTooltip").style.display = "flex";
+      }
+
+      function hideFullTooltip() {
+        document.getElementById("fullTooltip").style.display = "none";
+      }
+    </script>
   </body>
 </html>

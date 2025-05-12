@@ -1,0 +1,34 @@
+
+.scrolling-text {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+  height: 30px; /* Điều chỉnh chiều cao nếu cần */
+}
+
+.scrolling-text li {
+  display: inline-block;
+  position: absolute;
+  white-space: nowrap;
+  will-change: transform;
+  animation: scroll-left 15s linear infinite;
+}
+
+.scrolling-text:hover li {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+
+
+

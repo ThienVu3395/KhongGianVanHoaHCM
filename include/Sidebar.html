@@ -1,0 +1,218 @@
+<style>
+  @keyframes falling-petal {
+    0% {
+      transform: translateY(-50px) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  .petal {
+    position: absolute;
+    top: 0;
+    background-image: url("dist/khonggianvanhoa/canhhoasen.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    animation: falling-petal linear infinite;
+  }
+
+  /* Các cánh khác nhau */
+  .petal:nth-child(1) {
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-duration: 7s;
+    animation-delay: 0s;
+  }
+  .petal:nth-child(2) {
+    left: 30%;
+    width: 25px;
+    height: 25px;
+    animation-duration: 9s;
+    animation-delay: 1s;
+  }
+  .petal:nth-child(3) {
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    animation-duration: 6s;
+    animation-delay: 2s;
+  }
+  .petal:nth-child(4) {
+    left: 70%;
+    width: 30px;
+    height: 30px;
+    animation-duration: 8s;
+    animation-delay: 3s;
+  }
+  .petal:nth-child(5) {
+    left: 90%;
+    width: 18px;
+    height: 18px;
+    animation-duration: 10s;
+    animation-delay: 4s;
+  }
+</style>
+
+<!-- Chử Menu màu đỏ -->
+<style>
+  .menu-red a p {
+    color: blue !important;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+</style>
+<!-- Style Icon Hoa Sen -->
+<style>
+  .nav-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url("dist/khonggianvanhoa/iconSen.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+</style>
+
+<!-- Style Icon Hoa Sen xaoy vòng tròn -->
+<!-- <style>
+  @keyframes spin-right {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .nav-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url("dist/khonggianvanhoa/iconSen.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: spin-right 3s linear infinite;
+  }
+</style> -->
+
+<!-- Main Sidebar Container -->
+<aside
+  class="main-sidebar sidebar-light-danger elevation-4 sidebar-with-lotus"
+  style="
+    background-color: blanchedalmond;
+    background-image: url('dist/khonggianvanhoa/hoasen.png');
+    background-repeat: no-repeat;
+    background-position: center calc(100% + 250px);
+    background-size: 500% auto;
+    height: 100%;
+  "
+>
+  <div class="petal"></div>
+  <div class="petal"></div>
+  <div class="petal"></div>
+  <div class="petal"></div>
+  <div class="petal"></div>
+  <div class="petal"></div>
+  <div class="petal"></div>
+  <div class="petal"></div>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar user panel (optional) -->
+    <div class="user-panel mt-1 pb-1 mb-1 d-flex">
+      <div class="image">
+        <img
+          src="dist/khonggianvanhoa/logo.png"
+          alt="Bac Ho"
+          style="width: 100%; height: 50px"
+        />
+      </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav
+      class="nav nav-pills nav-sidebar flex-column"
+      data-widget="treeview"
+      role="menu"
+      data-accordion="false"
+    >
+      <ul
+        class="nav nav-pills nav-sidebar flex-column menu-red"
+        data-widget="treeview"
+        role="menu"
+        data-accordion="false"
+      >
+        <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+        <li class="nav-item">
+          <a href="index.html" class="nav-link active">
+            <i class="nav-icon"></i>
+            <p>Trang chủ</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="lichsudoanhnghiep.html" class="nav-link">
+            <i class="nav-icon"></i>
+            <p>Lịch sử doanh nghiệp</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="tieusuhcm.html" class="nav-link">
+            <i class="nav-icon"></i>
+            <p>Tiểu sử chủ tịch HCM</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="baotang3d.html" class="nav-link">
+            <i class="nav-icon"></i>
+            <p>Bảo tàng 3D</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="tacphamcuabac.html" class="nav-link">
+            <i class="nav-icon"></i>
+            <p>Tác phẩm của Bác</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="tacphamvebac.html" class="nav-link">
+            <i class="nav-icon"></i>
+            <p>Tác phẩm về Bác</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="tulieuvideoclip.html" class="nav-link">
+            <i class="nav-icon"></i>
+            <p>Tư liệu video, clip</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="guongdienhinh.html" class="nav-link">
+            <i class="nav-icon"></i>
+            <p>Gương điển hình</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="hocvalamtheoloibac.html" class="nav-link">
+            <i class="nav-icon"></i>
+            <p>Học, làm theo lời Bác</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="hocvalamtheoloibac.html" class="nav-link">
+            <i class="nav-icon"></i>
+            <p>Tủ sách thanh niên</p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>

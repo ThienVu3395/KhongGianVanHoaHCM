@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Không Gian Văn Hóa Hồ Chí Minh</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"
+    />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css" />
+    <!-- Ionicons -->
+    <link
+      rel="stylesheet"
+      href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+    />
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link
+      rel="stylesheet"
+      href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"
+    />
+    <!-- iCheck -->
+    <link
+      rel="stylesheet"
+      href="plugins/icheck-bootstrap/icheck-bootstrap.min.css"
+    />
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css" />
+    <!-- overlayScrollbars -->
+    <link
+      rel="stylesheet"
+      href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css"
+    />
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css" />
+    <!-- summernote -->
+    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css" />
+    <!-- Không gian Van hoa CSS -->
+    <link rel="stylesheet" href="dist/css/khongianvanhoa.css" />
+    <style>
+      .product-img img {
+        width: 150px !important;
+        height: 150px !important;
+        margin-right: 10px !important; /* Đẩy nội dung sang phải */
+      }
+    </style>
+  </head>
+  <body
+    ng-app="myApp"
+    ng-controller="myCtrl"
+    class="hold-transition sidebar-mini layout-fixed"
+  >
+    <div class="wrapper">
+      <!-- Preloader -->
+      <div
+        class="preloader flex-column justify-content-center align-items-center"
+      >
+        <img
+          class="animation__shake"
+          src="dist/img/AdminLTELogo.png"
+          alt="AdminLTELogo"
+          height="60"
+          width="60"
+        />
+      </div>
+      <div ng-include="'include/Navbar.html'"></div>
+
+      <!-- Main Sidebar Container -->
+      <div ng-include="'include/Sidebar.html'"></div>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header" style="margin-top: 1px">
+          <!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <div class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="card card-red card-outline">
+                  <div class="card-body">
+                    <ul class="products-list product-list-in-card pl-2 pr-2">
+                      <li class="item">
+                        <div class="product-img">
+                          <img
+                            src="dist/khonggianvanhoa/hoclamtheobac/bi-quyet-thanh-cong-cua-nha-chinh-tri-ho-chi-minh-1.jpg"
+                            alt="Product Image"
+                            class="img-size-150"
+                          />
+                        </div>
+                        <div class="product-info">
+                          <a href="javascript:void(0)" class="product-title"
+                            >Bí quyết thành công của nhà chính trị Hồ Chí Minh
+                          </a>
+                          <br />
+                          <span class="product-description1">
+                            Tại sao trong cùng hoàn cảnh lịch sử, nhiều người
+                            Việt Nam ra đi tìm đường cứu nước, nhưng chỉ có
+                            Nguyễn Tất Thành - Hồ Chí Minh thực hiện thành công
+                            sứ mệnh lịch sử của mình đối với Tổ quốc và đồng bào
+                            Tại sao trong cùng hoàn cảnh lịch sử, nhiều người
+                            Việt Nam ra đi tìm đường cứu nước, nhưng chỉ có
+                            Nguyễn Tất Thành - Hồ Chí Minh thực hiện thành công
+                            sứ mệnh lịch sử của mình đối với Tổ quốc và đồng
+                            bào. Việt Nam ra đi tìm đường cứu nước, nhưng chỉ có
+                            Nguyễn Tất Thành - Hồ Chí Minh thực hiện thành
+                            công..
+                          </span>
+                          <br />
+                          <a
+                            href="javascript:void(0)"
+                            class="badge badge-danger float-right"
+                            >Chi tiết</a
+                          >
+                        </div>
+                      </li>
+                      <li class="item">
+                        <div class="product-img">
+                          <img
+                            src="dist/khonggianvanhoa/hoclamtheobac/img_7244.jpg"
+                            alt="Product Image"
+                            class="img-size-150"
+                          />
+                        </div>
+                        <div class="product-info">
+                          <a href="javascript:void(0)" class="product-title"
+                            >Học tập Chủ tịch Hồ Chí Minh - Tấm gương lớn về sự
+                            nêu gương
+                          </a>
+                          <br />
+                          <span class="product-description1">
+                            Học tập, làm theo tư tưởng, đạo đức, phong cách Hồ
+                            Chí Minh rất rộng lớn, phong phú, sâu sắc nhưng vô
+                            cùng thiết thực với cán bộ, đảng viên, nhân dân là
+                            học theo sự nêu gương của Người.
+                          </span>
+                          <br />
+                          <a
+                            href="javascript:void(0)"
+                            class="badge badge-danger float-right"
+                            >Chi tiết</a
+                          >
+                        </div>
+                      </li>
+                      <li class="item">
+                        <div class="product-img">
+                          <img
+                            src="dist/khonggianvanhoa/hoclamtheobac/02.jpg"
+                            alt="Product Image"
+                            class="img-size-150"
+                          />
+                        </div>
+                        <div class="product-info">
+                          <a href="javascript:void(0)" class="product-title"
+                            >Học ở Bác đức tính tiết kiệm
+                          </a>
+                          <br />
+                          <span class="product-description1">
+                            Người xưa có câu: “Thác là thể phách, còn là tinh
+                            anh” Chủ tịch Hồ Chí Minh kính yêu của chúng ta - vị
+                            lãnh tụ cách mạng thiên tài, anh hùng giải phóng dân
+                            tộc, danh nhân văn hoá thế giới tuy không còn nữa
+                            nhưng tinh anh của Người đã để lại cho chúng ta một
+                            di sản to lớn, đó là tư tưởng vĩ đại và một tấm
+                            gương sáng ngời về đạo đức - tượng trưng cho những
+                            gì cao đẹp nhất của nhân cách và khí phách Việt Nam.
+                          </span>
+                          <br />
+                          <a
+                            href="javascript:void(0)"
+                            class="badge badge-danger float-right"
+                            >Chi tiết</a
+                          >
+                        </div>
+                      </li>
+                      <li class="item">
+                        <div class="product-img">
+                          <img
+                            src="dist/khonggianvanhoa/hoclamtheobac/01.jpg"
+                            alt="Product Image"
+                            class="img-size-150"
+                          />
+                        </div>
+                        <div class="product-info">
+                          <a href="javascript:void(0)" class="product-title"
+                            >Chủ tịch Hồ Chí Minh – Một số hình ảnh cuộc sống
+                            đời thường
+                          </a>
+                          <br />
+                          <span class="product-description1">
+                            Chuyên đề: “Chủ tịch Hồ Chí Minh Một số hình ảnh
+                            cuộc sống đời thường” gồm 85 hình ảnh và 15 tư liệu.
+                            Nội dung chuyên đề nhằm làm rõ nét hơn về con người
+                            của Chủ tịch Hồ Chí Minh không phải dưới góc độ một
+                            vị lãnh tụ, một nhà hoạt động quốc tế lỗi lạc, mà
+                            dưới góc độ của một con người bình thường. Người
+                            sống giản dị, từ nơi ăn chốn ở... nhưng ẩn trong đó
+                            là một tình yêu bao la đối với con người. Người đã
+                            hy sinh cả cuộc đời mình cho sự nghiệp giải phóng
+                            dân tộc, hướng con người đến “Độc lập, Tự do, Hạnh
+                            phúc”. .
+                          </span>
+                          <a
+                            href="javascript:void(0)"
+                            class="badge badge-danger float-right"
+                            >Chi tiết</a
+                          >
+                        </div>
+                      </li>
+                      <li class="item">
+                        <div class="product-img">
+                          <img
+                            src="dist/khonggianvanhoa/hoclamtheobac/hoc bac tu tam guong.jpg"
+                            alt="Product Image"
+                            class="img-size-150"
+                          />
+                        </div>
+                        <div class="product-info">
+                          <a href="javascript:void(0)" class="product-title"
+                            >Học Bác từ tấm gương tự học và tác phong làm việc
+                            hiệu quả, chuẩn mực
+                          </a>
+                          <br />
+                          <span class="product-description1">
+                            Như Xã luận Báo Granma (Cuba), cơ quan ngôn luận của
+                            Trung ương Đảng Cộng sản Cuba viết: “Bác Hồ là tấm
+                            gương mà nhiều con người có thể noi theo và làm được
+                            như Người”, tư tưởng và đạo đức Hồ Chí Minh đã trở
+                            thành tấm gương cho nhiều thế hệ đương thời và sáng
+                            soi trong sự nghiệp cách mạng của dân tộc Việt
+                            Nam... .
+                          </span>
+                          <br />
+                          <a
+                            href="javascript:void(0)"
+                            class="badge badge-danger float-right"
+                            >Chi tiết</a
+                          >
+                        </div>
+                      </li>
+                      <!-- /.item -->
+                    </ul>
+                  </div>
+                </div>
+                <!-- /.card -->
+              </div>
+              <!-- /.col-md-6 -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
+      <footer class="main-footer">
+        <strong
+          >Copyright &copy; 2025-2026
+          <a href="https://kgvhhcm.capnuocnhabe.vn"
+            >Không Gian văn Hóa Hồ Chí Minh</a
+          >.</strong
+        >
+        All rights reserved.
+        <div class="float-right d-none d-sm-inline-block">
+          <b>Version</b> 1.0.0
+        </div>
+      </footer>
+
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+      </aside>
+      <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+      $.widget.bridge("uibutton", $.ui.button);
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <script src="plugins/chart.js/Chart.min.js"></script>
+    <!-- Sparkline -->
+    <script src="plugins/sparklines/sparkline.js"></script>
+    <!-- JQVMap -->
+    <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="plugins/moment/moment.min.js"></script>
+    <script src="plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Summernote -->
+    <script src="plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="dist/js/demo.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="dist/js/pages/dashboard.js"></script>
+    <script>
+      angular.module("myApp", []).controller("myCtrl", function ($scope) {});
+    </script>
+    <script>
+      document.querySelectorAll(".product-description1").forEach((el) => {
+        const text = el.innerText;
+        const maxLength = 10000; // số ký tự muốn giữ lại
+        if (text.length > maxLength) {
+          el.innerText = text.substring(0, maxLength) + "...";
+        }
+      });
+    </script>
+  </body>
+</html>
